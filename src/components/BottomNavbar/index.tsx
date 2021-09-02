@@ -38,9 +38,6 @@ const BottomNavbar = (props: BottomNavbarTypes) => {
   return (
     <BottomNavbarContainer {...props}>
       <NavIcon active={currentLocation === '/signup'} to='/signup' />
-      <NavIcon active={currentLocation === '/signup'} to='/signup' />
-      <NavIcon active={currentLocation === '/signup'} to='/signup' />
-      <NavIcon active={currentLocation === '/signup'} to='/signup' />
       <NavIcon active={currentLocation === '/login'} to='/login' />
     </BottomNavbarContainer>
   )
