@@ -2,7 +2,6 @@ import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../../utils/themes/colors'
-import { sizes } from '../../utils/themes/media'
 
 const BottomNavbarContainer = styled.footer<BottomNavbarTypes>`
   background-color: ${colors.white1};
