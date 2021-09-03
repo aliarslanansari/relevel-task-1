@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import PasswordInput from '../../components/PasswordInput'
 import TextField from '../../components/TextField'
 import { colors } from '../../utils/themes/colors'
+import { useHistory } from 'react-router'
 
 const StyledForm = styled.form`
   display: flex;
@@ -26,6 +27,7 @@ const ForgotPassword = styled.span`
 `
 
 const LoginPage = () => {
+  const history = useHistory()
   return (
     <>
       <Head title='Login' />
@@ -33,7 +35,13 @@ const LoginPage = () => {
       <StyledForm onSubmit={(e) => e.preventDefault()}>
         <TextField placeholder='Email' onChange={() => {}} />
         <PasswordInput placeholder='Password' />
-        <Button label='Sign Up' mt='2.7rem' onClick={() => {}} />
+        <Button
+          label='Login'
+          mt='2.7rem'
+          onClick={() => {
+            history.push('/profile')
+          }}
+        />
         <ForgotPassword>
           <Clickable text='Forgot your password?' onClick={() => {}} />
         </ForgotPassword>
