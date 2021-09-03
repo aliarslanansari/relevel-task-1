@@ -10,6 +10,7 @@ import { useState } from 'react'
 const MainWrapper = styled.div`
   position: relative;
   text-align: center;
+  margin-bottom: 3rem;
 `
 
 const UpperSection = styled.div`
@@ -54,6 +55,62 @@ const MantraText = styled.h2`
   line-height: 1.2rem;
 `
 
+const PostContainer = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+`
+const PostImage = styled.div<{
+  height?: string
+  width?: string
+}>`
+  background-color: ${colors.grey.grey1};
+  width: ${(props) => (props.width ? props.width : '5rem')};
+  height: ${(props) => (props.height ? props.height : '4rem')};
+  border-radius: 8px;
+`
+
+const PostHeaderSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+const PostHeader = styled.h2<{
+  margin?: string
+}>`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  margin: 0;
+  ${(props) => props.margin && 'margin:' + props.margin}
+`
+const PostTextSection = styled.div`
+  margin-left: 1rem;
+`
+const PostText = styled.p`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+`
+
+const PostTime = styled.span`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: ${colors.grey.grey3};
+`
+
+const PhotosContainer = styled.div`
+  margin-top: 1rem;
+  text-align: start;
+  flex-direction: column;
+  display: flex;
+`
+
 const ProfilePage = () => {
   const history = useHistory()
   const onHeaderRightLinkClick = () => {
@@ -83,6 +140,35 @@ const ProfilePage = () => {
         <ProfileName>Victoria Robertson</ProfileName>
         <MantraText>A mantra goes here</MantraText>
         <ToggleButton onChange={onSectionChange} sectionIndex={sectionIndex} />
+        {sectionIndex === 0 &&
+          [1, 2, 3, 4, 5].map(() => (
+            <PostContainer>
+              <PostImage />
+              <PostTextSection>
+                <PostHeaderSection>
+                  <PostHeader>Header</PostHeader>
+                  <PostTime>8m ago</PostTime>
+                </PostHeaderSection>
+                <PostText>
+                  He'll want to use your yacht, and I don't want this thing
+                  smelling like fish.
+                </PostText>
+              </PostTextSection>
+            </PostContainer>
+          ))}
+
+        {sectionIndex === 1 &&
+          [1, 2, 3, 4, 5].map(() => (
+            <PhotosContainer>
+              <PostImage height='8rem' width='100%' />
+              <PostHeader margin='0.5rem 0 0 0'>Header</PostHeader>
+              <PostText>
+                He'll want to use your yacht, and I don't want this thing
+                smelling like fish.
+              </PostText>
+              <PostTime>8m ago</PostTime>
+            </PhotosContainer>
+          ))}
       </MainWrapper>
     </>
   )
