@@ -23,6 +23,11 @@ export const routeConfig: RouteConfig = {
     exact: true,
     path: '/login',
   },
+  profile: {
+    render: lazyLoader(() => import('./containers/ProfilePage')),
+    exact: true,
+    path: '/profile',
+  },
   homepage: {
     render: () => <Redirect to='/signup' />,
     exact: true,

@@ -1,5 +1,6 @@
 import { SVGProps } from 'react'
 import styled from 'styled-components'
+import { colors } from '../../utils/themes/colors'
 import Clickable from '../Clickable'
 
 const StyledHeader = styled.header<HeaderPropsTypes>`
@@ -8,6 +9,7 @@ const StyledHeader = styled.header<HeaderPropsTypes>`
   align-items: center;
   margin-bottom: 2rem;
   justify-content: space-between;
+  ${(props) => props.darkTheme && 'color:' + colors.white};
 `
 
 const StyledTitle = styled.h1`
@@ -24,6 +26,7 @@ const IconWrapper = styled.div`
 `
 
 interface HeaderPropsTypes {
+  darkTheme?: boolean
   leftText?: string
   leftOnClick?: () => void
   rightText?: string
@@ -43,11 +46,21 @@ const Header = (props: HeaderPropsTypes) => {
         </IconWrapper>
       ) : (
         leftText &&
-        leftOnClick && <Clickable onClick={leftOnClick} text={leftText} />
+        leftOnClick && (
+          <Clickable
+            onClick={leftOnClick}
+            text={leftText}
+            color={props.darkTheme ? colors.white : undefined}
+          />
+        )
       )}
       <StyledTitle>{title}</StyledTitle>
       {rightText && rightOnClick && (
-        <Clickable onClick={rightOnClick} text={rightText} />
+        <Clickable
+          onClick={rightOnClick}
+          text={rightText}
+          color={props.darkTheme ? colors.white : undefined}
+        />
       )}
     </StyledHeader>
   )

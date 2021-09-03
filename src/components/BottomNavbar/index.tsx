@@ -5,7 +5,6 @@ import { colors } from '../../utils/themes/colors'
 
 const BottomNavbarContainer = styled.footer<BottomNavbarTypes>`
   background-color: ${colors.white1};
-  height: 3rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -38,6 +37,7 @@ const BottomNavbar = (props: BottomNavbarTypes) => {
     <BottomNavbarContainer {...props}>
       <NavIcon active={currentLocation === '/signup'} to='/signup' />
       <NavIcon active={currentLocation === '/login'} to='/login' />
+      <NavIcon active={currentLocation === '/profile'} to='/profile' />
     </BottomNavbarContainer>
   )
 }
