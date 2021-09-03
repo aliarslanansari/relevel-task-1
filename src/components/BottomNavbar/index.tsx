@@ -11,11 +11,10 @@ const BottomNavbarContainer = styled.footer<BottomNavbarTypes>`
   align-items: center;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
   right: 0;
   ${(props) => (props.maxWidth ? `max-width:${props.maxWidth}px` : '')};
   ${(props) => (props.padding ? `padding:${props.padding}px` : '')};
-  left: 0;
   margin: 0 auto;
   border-top: 1px solid ${colors.dividerColor};
 `
